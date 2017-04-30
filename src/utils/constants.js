@@ -4,8 +4,8 @@ const IPHONE_SIZE = {
 }
 
 const fontSize = {
-  TITLE: 36,
-  SUBTITLE: 22,
+  TITLE: 42,
+  SUBTITLE: 21,
   PARAGRAPH: 14
 }
 
