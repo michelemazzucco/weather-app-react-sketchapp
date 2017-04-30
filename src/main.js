@@ -13,7 +13,11 @@ const styles = StyleSheet.create({
 
 const App = ({ currently }) =>
   <View style={styles.container} name="Wrapper">
-    <CurrentWeather temperature={currently.temperature} summary={currently.summary} />
+    <CurrentWeather
+      summary={currently.summary}
+      temperature={currently.temperature}
+      humidity={currently.humidity}
+    />
   </View>
 
 export default (context) => {

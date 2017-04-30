@@ -2,34 +2,49 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { render, Text, StyleSheet, View } from 'react-sketchapp'
 import { IPHONE_SIZE, fontSize } from '../utils/constants'
+import { tempFormat, humidityFormat } from '../utils/formats'
 
 const styles = StyleSheet.create({
   currentTemp: {
     fontSize: fontSize.TITLE,
     color: '#444444'
   },
+  infos: {
+    width: IPHONE_SIZE.width,
+    padding: 40
+  },
+  bottomInfos: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center'
+  },
+  currentHum: {
+    fontSize: fontSize.SUBTITLE
+  },
   currentSum: {
     fontSize: fontSize.SUBTITLE,
     color: '#999999'
   },
   currentWeather: {
-    width: IPHONE_SIZE.width,
     height: (IPHONE_SIZE.height / 4) * 3,
     backgroundColor: '#F2F2F2',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'flex-start',
-    justifyContent: 'space-between',
-    padding: 40
+    justifyContent: 'space-between'
   }
 })
 
-const tempFormat = (t) => `${Math.round(t * 2) / 2}°`
-
-const CurrentWeather = ({ temperature, summary }) =>
+const CurrentWeather = ({ summary, temperature, humidity }) =>
   <View style={styles.currentWeather} name='Current Weather'>
-    <Text style={styles.currentSum}>{ summary }</Text>
-    <Text style={styles.currentTemp}>{ tempFormat(temperature) }</Text>
+    <View style={styles.infos} name="Top Infos">
+      <Text style={styles.currentTemp}>{ tempFormat(temperature) }</Text>
+    </View>
+    <View style={[styles.infos, styles.bottomInfos]} name="Bottom Infos">
+      <Text style={styles.currentHum}>{ humidityFormat(humidity) }</Text>
+      <Text style={styles.currentSum}>{ summary }</Text>
+    </View>
   </View>
 
 export default CurrentWeather
