@@ -1,6 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { render, Text, StyleSheet, View } from 'react-sketchapp'
+import { Text, StyleSheet, View } from 'react-sketchapp'
 import { IPHONE_SIZE, fontSize } from '../utils/constants'
 import { tempFormat, humidityFormat } from '../utils/formats'
 
@@ -27,7 +26,7 @@ const styles = StyleSheet.create({
     color: '#999999'
   },
   currentWeather: {
-    height: (IPHONE_SIZE.height / 4) * 3,
+    height: (IPHONE_SIZE.height / 5) * 3,
     backgroundColor: '#F2F2F2',
     display: 'flex',
     flexDirection: 'column',

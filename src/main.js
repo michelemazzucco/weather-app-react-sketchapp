@@ -1,31 +1,29 @@
 import React from 'react'
-import { render, Artboard, StyleSheet, View } from 'react-sketchapp'
-import { IPHONE_SIZE } from './utils/constants'
+import { render, Artboard } from 'react-sketchapp'
 import fetchData from './utils/fetchData'
-import CurrentWeather from './components/CurrentWeather'
-
-const styles = StyleSheet.create({
-  container: {
-    ...IPHONE_SIZE,
-    backgroundColor: '#444444'
-  }
-})
-
-const App = ({ currently }) =>
-  <View style={styles.container} name="Wrapper">
-    <CurrentWeather
-      summary={currently.summary}
-      temperature={currently.temperature}
-      humidity={currently.humidity}
-    />
-  </View>
+import App from './components/App'
 
 export default (context) => {
-  fetchData()
+
+  const BRESCIA = {
+    name: 'Brescia, Italy',
+    latitude: 45.538205,
+    longitude: 10.219252
+  }
+
+  const OSLO = {
+    name: 'Oslo, Norway',
+    latitude: 59.913584,
+    longitude: 10.750204
+  }
+
+  const { name, latitude, longitude } = BRESCIA
+
+  fetchData({ latitude, longitude })
   .then(data => {
     render(
-      <Artboard name="Today Weather">
-        <App currently={data.currently} />
+      <Artboard name='Today Weather'>
+        <App name={name} currently={data.currently} />
       </Artboard>,
       context.document.currentPage()
     )
