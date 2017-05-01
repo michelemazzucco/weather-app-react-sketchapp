@@ -18,5 +18,3 @@ $ npm run render
 
 [react-sketchapp]: https://github.com/airbnb/react-sketchapp
 [dark-sky]: https://darksky.net/dev/
-
-70c6dd8674c3516c1ffbea96553afa08
