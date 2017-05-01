@@ -1,5 +1,5 @@
 # Weather App
-Playn' with [React Sketch.app][react-sketchapp] and [Dark Sky API][dark-sky]
+Playin' with [React Sketch.app][react-sketchapp] and [Dark Sky API][dark-sky]
 
 ## Getting Started
 ```bash
